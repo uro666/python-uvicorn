@@ -74,7 +74,7 @@ Uvicorn supports HTTP/1.1 and WebSockets.
 %check
 # run tests, disable websocket tests and ignore warnings as those tests need updated.
 # for more info: https://github.com/encode/uvicorn/issues/1908
-%{__python} -m pytest -v tests/ -k 'not websocket' --pythonwarnings 'ignore:websockets:DeprecationWarning'
+%{__python} -m pytest --import-mode append -v tests/ -k 'not websocket' --pythonwarnings 'ignore:websockets:DeprecationWarning'
 
 %endif
 
