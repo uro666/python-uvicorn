@@ -33,16 +33,16 @@ BuildRequires:	python%{pyver}dist(watchfiles)
 
 %if %{with test}
 BuildRequires:	python%{pyver}dist(coverage)
-#BuildRequires:	python%%{pyver}dist(coverage-conditional-plugin)
+BuildRequires:	python%{pyver}dist(coverage-conditional-plugin)
 BuildRequires:	python%{pyver}dist(cryptography)
 BuildRequires:	python%{pyver}dist(httpx)
 BuildRequires:	python%{pyver}dist(mypy)
 BuildRequires:	python%{pyver}dist(pytest)
 BuildRequires:	python%{pyver}dist(pytest-mock)
-#BuildRequires:	python%%{pyver}dist(ruff)
+BuildRequires:	python%{pyver}dist(ruff)
 BuildRequires:	python%{pyver}dist(trustme)
-#BuildRequires:	python%%{pyver}dist(types-click)
-#BuildRequires:	python%%{pyver}dist(types-pyyaml)
+BuildRequires:	python%{pyver}dist(types-click)
+BuildRequires:	python%{pyver}dist(types-pyyaml)
 %endif
 
 Recommends:     python-PyYAML >= 5.1
