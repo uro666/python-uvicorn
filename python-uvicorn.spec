@@ -1,5 +1,6 @@
 %define module uvicorn
-%bcond_without test
+# disable test on abf
+%bcond_with test
 
 Name:		python-uvicorn
 Version:	0.34.0
@@ -14,16 +15,19 @@ BuildArch:	noarch
 
 BuildRequires:	python
 BuildRequires:	pkgconfig(python3)
+BuildRequires:	python%{pyver}dist(a2wsgi)
 BuildRequires:	python%{pyver}dist(build)
+BuildRequires:	python%{pyver}dist(click)
+BuildRequires:	python%{pyver}dist(cryptography)
 BuildRequires:	python%{pyver}dist(hatchling)
 BuildRequires:	python%{pyver}dist(h11)
+BuildRequires:	python%{pyver}dist(httpx)
+BuildRequires:	python%{pyver}dist(trustme)
 BuildRequires:	python%{pyver}dist(twine)
-BuildRequires:	python%{pyver}dist(click)
 BuildRequires:	python%{pyver}dist(typing-extensions)
-BuildRequires:	python%{pyver}dist(a2wsgi)
 BuildRequires:	python%{pyver}dist(wsproto)
 BuildRequires:	python%{pyver}dist(websockets)
-# Optional deps
+# Optionals
 BuildRequires:	python%{pyver}dist(colorama)
 BuildRequires:	python%{pyver}dist(httptools)
 BuildRequires:	python%{pyver}dist(python-dotenv)
@@ -34,13 +38,10 @@ BuildRequires:	python%{pyver}dist(watchfiles)
 %if %{with test}
 BuildRequires:	python%{pyver}dist(coverage)
 BuildRequires:	python%{pyver}dist(coverage-conditional-plugin)
-BuildRequires:	python%{pyver}dist(cryptography)
-BuildRequires:	python%{pyver}dist(httpx)
 BuildRequires:	python%{pyver}dist(mypy)
 BuildRequires:	python%{pyver}dist(pytest)
 BuildRequires:	python%{pyver}dist(pytest-mock)
 BuildRequires:	python%{pyver}dist(ruff)
-BuildRequires:	python%{pyver}dist(trustme)
 BuildRequires:	python%{pyver}dist(types-click)
 BuildRequires:	python%{pyver}dist(types-pyyaml)
 %endif
